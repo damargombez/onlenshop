@@ -1,0 +1,1 @@
+<?php 	if($rows !== NULL): ?>		<?php 		foreach($rows as $row): 		?>			<div class="panel panel-default">				<div class="panel-heading">					<h4 class="panel-title">						<a href="<?php echo base_url('index.php/kategori/lihat/' . $row['id']); ?>"><?php echo ucwords($row['nama']); ?></a>					</h4>				</div>			</div>		<?php 		endforeach; 		?><?php 	endif; ?>	
