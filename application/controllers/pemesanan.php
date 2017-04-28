@@ -83,6 +83,36 @@ class Pemesanan extends BASE_Controller {
 			redirect('pemesanan');
 		}
 	}
+
+	public function nonmember_temp()
+	{
+		if (strtolower($_SERVER['REQUEST_METHOD'])=='post') {
+			if ($this->session->userdata('nonmember_information')) {
+				$this->session->unset_userdata('nonmember_information');
+			}
+
+			$post['nonmember_information'] = $this->input->post();
+			$this->session->set_userdata($post);
+
+			redirect('pemesanan/konfirmasi_pesan');
+		}
+	}
+
+	public function konfirmasi_pesan()
+	{
+		$data_view['keranjang'] = $this->cart->contents();
+		$data_view['pelanggan'] = $this->session->userdata('nonmember_information');
+		// print_r($this->session->all_userdata());die();
+		
+		//kalau kosong, warning!
+		if(empty($data_view['keranjang']) === TRUE)
+		{
+			$this->set_feedback('Keranjang masih kosong', 'info');
+		}
+		$tabel = $this->load->view('frontend/pemesanan/konfirmasi', $data_view, TRUE);
+		$this->set_judul('list');
+		$this->tampil($tabel);
+	}
 	
 }
 

@@ -1449,17 +1449,18 @@ h2.title {
 }
 
 .login-form h2, .signup-form h2 {
-  color: #696763;
+  color: #FE980F;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 300;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 
 .login-form form input, .signup-form form input {
-  background: #F0F0E9;
-  border: medium none;
+  background: #fff;
+  /*border: medium none;*/
   color: #696763;
   display: block;
   font-family: 'Roboto', sans-serif;
@@ -1484,7 +1485,7 @@ h2.title {
 }
 
 .login-form form button {
-  margin-top: 23px;
+  margin-top: 10px;
 }
 
 .login-form form button, .signup-form form button {
@@ -1492,7 +1493,7 @@ h2.title {
   border: medium none;
   border-radius: 0;
   color: #FFFFFF;
-  display: block;
+  /*display: block;*/
   font-family: 'Roboto', sans-serif;
   padding: 6px 25px;
 }

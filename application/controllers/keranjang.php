@@ -123,8 +123,16 @@ class Keranjang extends BASE_Controller {
 		$member = $this->get_current_member();
 		if($member === NULL)
 		{
-			$this->set_flash_feedback('Silahkan login untuk melakukan check out. Atau register jika belum memiliki akun', 'error');
-			redirect('member/login');
+			/*$this->set_flash_feedback('Silahkan login untuk melakukan check out. Atau register jika belum memiliki akun', 'error');
+			redirect('member/login');*/
+			// print_r($this->session->all_userdata());die();
+			if ($this->session->userdata('nonmember_information')) {
+				print_r('aa');die();
+				$data['nonmember'] = $this->session->userdata('nonmember_information');
+			}
+			$data = $this->cart->contents();
+			$tabel = $this->load->view("frontend/member/formPemesan", $data, true);
+			$this->tampil($tabel);
 		}
 		else
 		{
