@@ -100,18 +100,22 @@ class Pemesanan extends BASE_Controller {
 
 	public function konfirmasi_pesan()
 	{
-		$data_view['keranjang'] = $this->cart->contents();
-		$data_view['pelanggan'] = $this->session->userdata('nonmember_information');
-		// print_r($this->session->all_userdata());die();
-		
-		//kalau kosong, warning!
-		if(empty($data_view['keranjang']) === TRUE)
-		{
-			$this->set_feedback('Keranjang masih kosong', 'info');
+		if (strtolower($_SERVER['REQUEST_METHOD']=='post')) {
+			print_r($this->input->post());
+		} else {
+			$data_view['keranjang'] = $this->cart->contents();
+			$data_view['pelanggan'] = $this->session->userdata('nonmember_information');
+			// print_r($this->session->all_userdata());die();
+			
+			//kalau kosong, warning!
+			if(empty($data_view['keranjang']) === TRUE)
+			{
+				$this->set_feedback('Keranjang masih kosong', 'info');
+			}
+			$tabel = $this->load->view('frontend/pemesanan/konfirmasi', $data_view, TRUE);
+			$this->set_judul('list');
+			$this->tampil($tabel);
 		}
-		$tabel = $this->load->view('frontend/pemesanan/konfirmasi', $data_view, TRUE);
-		$this->set_judul('list');
-		$this->tampil($tabel);
 	}
 	
 }

@@ -22,6 +22,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo assets(); ?>images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo assets(); ?>images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="<?php echo assets(); ?>images/ico/apple-touch-icon-57-precomposed.png">
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head><!--/head-->
 
 <body>
@@ -243,7 +245,9 @@
 	</footer><!--/Footer-->
 	
 
-  
+    <script type="text/javascript">
+    	var base_url = "<?php echo base_url(); ?>";
+    </script>
     <script src="<?php echo assets(); ?>js/jquery.js"></script>
 	<script src="<?php echo assets(); ?>js/bootstrap.min.js"></script>
 	<script src="<?php echo assets(); ?>js/jquery.scrollUp.min.js"></script>

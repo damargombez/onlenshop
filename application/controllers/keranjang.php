@@ -127,10 +127,12 @@ class Keranjang extends BASE_Controller {
 			redirect('member/login');*/
 			// print_r($this->session->all_userdata());die();
 			if ($this->session->userdata('nonmember_information')) {
-				print_r('aa');die();
 				$data['nonmember'] = $this->session->userdata('nonmember_information');
 			}
-			$data = $this->cart->contents();
+			$data['provinsi'] = get_combobox("SELECT id, name from provinces", "id", "name");
+			$data['kota'] = array();
+			$data['kecamatan'] = array();
+			$data['content'] = $this->cart->contents();
 			$tabel = $this->load->view("frontend/member/formPemesan", $data, true);
 			$this->tampil($tabel);
 		}

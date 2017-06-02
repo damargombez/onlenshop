@@ -77,6 +77,28 @@ class Main extends BASE_Controller {
 	{
 		$this->index($page);
 	}
+
+	function getKota($prop = "")
+    {
+        if (ctype_digit($prop)) {
+            $query = get_combobox("select id, name from regencies where province_id = $prop", "id", "name");
+            echo "<option value=''>Pilih Kab/Kota</option>";
+            foreach ($query as $key => $value) {
+                echo "<option value='{$key}'>$value</option>";
+            }
+        }
+    }
+
+    function getKecamatan($prop = "")
+    {
+        if (ctype_digit($prop)) {
+            $query = get_combobox("select id, name from districts where regency_id = $prop", "id", "name");
+            echo "<option value=''>Pilih Kecamatan</option>";
+            foreach ($query as $key => $value) {
+                echo "<option value='{$key}'>$value</option>";
+            }
+        }
+    }
 }
 
 /* End of file main.php */

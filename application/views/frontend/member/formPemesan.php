@@ -18,6 +18,21 @@
 							<input type="number" name="no_hp" class="form-control">
 						</div>
 
+						<div class="form-group">
+							<label for="provinsi">Provinsi</label>
+							<?php echo form_dropdown('provinsi', $provinsi, "", 'class="form-control" onchange="ajaxkota(this.value)"'); ?>
+						</div>
+
+						<div class="form-group">
+							<label for="kota">Kota</label>
+							<?php echo form_dropdown('kota', $kota, "", 'class="form-control" id="kota" onchange="ajaxkec(this.value)"'); ?>
+						</div>
+
+						<div class="form-group">
+							<label for="kota">Kecamatan</label>
+							<?php echo form_dropdown('kecamatan', $kecamatan, "", 'class="form-control" id="kecamatan"'); ?>
+						</div>
+
 						<h2>Alamat Pengiriman</h2>
 						<div class="form-group">
 							<label for="alamat">Alamat</label>
